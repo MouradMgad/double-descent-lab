@@ -1,0 +1,26 @@
+{
+  "n_samples": [
+    200,
+    500,
+    1000
+  ],
+  "noise_levels": [
+    0.1,
+    0.5
+  ],
+  "test_fraction": 0.2,
+  "repetitions": 30,
+  "base_seed": 42,
+  "max_degree": 40,
+  "random_feature_capacity_grid": "25%-200% of n_train; denser near n_train",
+  "one_dimensional_feature_initialization": "random +/-1 slopes with fixed empirical train-input quantile knots",
+  "seed_derivation": "data_seed=base_seed+repetition; model_seed=data_seed+1000003",
+  "solvers": [
+    "OLS (SVD least squares)",
+    "Ridge (augmented least squares, alpha=0.001)"
+  ],
+  "interpolation_rule": "training MSE <= 1e-10 + 1e-8 * training-target variance",
+  "rank_rule": "singular values > max(shape) * machine_epsilon * largest_singular_value",
+  "ci95": "95% percentile bootstrap confidence interval for the mean (5000 resamples)",
+  "bootstrap_seed": 20261013
+}

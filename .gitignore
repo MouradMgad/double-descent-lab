@@ -1,0 +1,30 @@
+# Python cache
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+.coverage
+htmlcov/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Local tooling and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Local model exports and build products
+*.joblib
+build/
+dist/
+*.egg-info/

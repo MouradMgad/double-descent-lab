@@ -1,0 +1,41 @@
+{
+  "dataset": "scikit-learn diabetes with load_diabetes(scaled=False)",
+  "evaluation": "10 repeats of 5-fold outer CV; 5-fold inner CV for Ridge and random-feature selection",
+  "seed": 20261014,
+  "outer_repeats": 10,
+  "outer_folds": 5,
+  "inner_folds": 5,
+  "outer_split_seed": "seed + repeat_index",
+  "inner_split_seed": "seed + repeat_index * 1009 + outer_fold_index",
+  "baseline_models": [
+    "mean_prediction",
+    "linear_regression",
+    "ridge"
+  ],
+  "random_feature_widths": [
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "ridge_alphas": [
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0
+  ],
+  "random_feature_selection": "minimum mean inner-fold MSE over width, OLS/Ridge solver, and ridge alpha",
+  "preprocessing": "StandardScaler fitted only on each inner or outer training fold",
+  "uncertainty": "95% percentile bootstrap interval across 10 repetition-level means (10,000 resamples)",
+  "bootstrap_resamples": 10000,
+  "paired_differences": "random_features minus each baseline, paired by identical outer fold; bootstrap clustered by repeat",
+  "synthetic_audit": {
+    "source": "artifacts/phase2/synthetic_runs.csv",
+    "method": "paired bootstrap of peak-minus-adjacent-capacity test-MSE differences",
+    "bootstrap_seed": 20261015,
+    "bootstrap_resamples": 10000,
+    "multiplicity_adjustment": false
+  }
+}

@@ -1,0 +1,4 @@
+dataset,difference,baseline,n_repeats,n_paired_outer_folds,test_mse_mean_difference,test_mse_ci95_low,test_mse_ci95_high,test_rmse_mean_difference,test_rmse_ci95_low,test_rmse_ci95_high
+sklearn_diabetes_raw,random_features - baseline,mean_prediction,10,50,-2679.9207350177157,-2738.3820912498863,-2626.1361321188506,-19.971039944410215,-20.47370971089785,-19.490737111338774
+sklearn_diabetes_raw,random_features - baseline,linear_regression,10,50,263.4122321457597,184.5667343086851,332.6937791157363,2.313798047388479,1.6261383918496817,2.9239791082266384
+sklearn_diabetes_raw,random_features - baseline,ridge,10,50,262.65273964531184,186.2765458236075,334.56025566974733,2.306738056674999,1.6407131890080486,2.9339828572741795

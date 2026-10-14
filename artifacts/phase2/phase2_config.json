@@ -1,0 +1,74 @@
+{
+  "synthetic": {
+    "n_samples": 200,
+    "noise_levels": [
+      0.1,
+      0.5
+    ],
+    "target_and_dimensions": [
+      [
+        "single_sinusoid",
+        1
+      ],
+      [
+        "single_sinusoid",
+        5
+      ],
+      [
+        "single_sinusoid",
+        20
+      ],
+      [
+        "additive_sinusoid",
+        5
+      ],
+      [
+        "additive_sinusoid",
+        20
+      ],
+      [
+        "interaction",
+        5
+      ],
+      [
+        "interaction",
+        20
+      ]
+    ],
+    "repetitions": 30,
+    "base_seed": 2026,
+    "ridge_alpha": 0.001,
+    "seed_derivation": "data_seed=base_seed+repetition; model_seed=data_seed+2000003",
+    "capacity_grid": "Phase 1 default_capacity_grid around n_train"
+  },
+  "real_dataset": {
+    "name": "scikit-learn diabetes",
+    "repetitions": 5,
+    "split_seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "split": "20% held-out test; remaining 80% split 75/25 into train/validation (60/20/20 overall)",
+    "preprocessing": "StandardScaler fit only on training partition",
+    "selection": "validation MSE selects width, solver, and ridge alpha; test is evaluated once",
+    "candidate_widths": [
+      16,
+      32,
+      64,
+      128,
+      256
+    ],
+    "ridge_alphas": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0
+    ]
+  },
+  "bootstrap_seed": 20261013,
+  "confidence_interval": "95% percentile bootstrap confidence interval for mean; 5000 resamples"
+}
