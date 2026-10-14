@@ -3,6 +3,9 @@
 
 [![CI](https://github.com/MouradMgad/double-descent-lab/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MouradMgad/double-descent-lab/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![NumPy](https://img.shields.io/badge/NumPy-1.24%2B-013243?logo=numpy&logoColor=white)](https://numpy.org/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3%2B-F7931E?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
 
 Double descent describes a possible pattern in which test error rises near the point where a model first interpolates its training data, then falls as capacity increases further. This reproducible Python research project studies that pattern in controlled random ReLU feature regression, checks how synthetic targets, input dimension, noise, and ridge regularization affect it, and compares the same model family with standard baselines on diabetes regression. The goal is to measure the effect carefully—not to claim it occurs universally.
 
