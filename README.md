@@ -1,9 +1,12 @@
 # Double Descent Lab
 *A hands-on study of model capacity, noise, and regularization.*
 
-**Status:** Research release candidate. Local tests, benchmark smoke checks, and figure generation pass; GitHub Actions has not yet run on a published repository.
+[![CI](https://github.com/MouradMgad/double-descent-lab/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MouradMgad/double-descent-lab/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Double descent describes a possible pattern in which test error rises near the point where a model first interpolates its training data, then falls as capacity increases further. This project studies that behavior in controlled random ReLU feature regression, checks how synthetic targets, input dimension, noise, and ridge regularization affect it, and compares the same model family with standard baselines on diabetes regression. The goal is to measure the effect carefully—not to claim it occurs universally.
+Double descent describes a possible pattern in which test error rises near the point where a model first interpolates its training data, then falls as capacity increases further. This reproducible Python research project studies that pattern in controlled random ReLU feature regression, checks how synthetic targets, input dimension, noise, and ridge regularization affect it, and compares the same model family with standard baselines on diabetes regression. The goal is to measure the effect carefully—not to claim it occurs universally.
+
+**Start here:** inspect the results below, read the [research report](reports/research_report.md), or follow the [installation and reproduction steps](#install).
 
 ## Results at a glance
 
@@ -71,6 +74,17 @@ python -m pip install -r requirements-dev.txt
 
 The diabetes dataset is provided by `sklearn.datasets.load_diabetes(scaled=False)`; no separate data download or committed dataset file is needed.
 
+## Quick start
+
+After installing the development dependencies, run the complete test suite and a fast benchmark check:
+
+```powershell
+python -m pytest -q
+python src/diabetes_benchmark.py --smoke
+```
+
+GitHub Actions runs the same tests, checks dependency consistency, smoke-tests the benchmark, and verifies that the canonical figures can be rendered on each push to `main` and pull request. A manually triggered run is also available from the repository's **Actions** tab. The badge at the top of this page shows the latest workflow status.
+
 ## Reproduce
 
 Run from the repository root. The full commands regenerate their phase-specific outputs; use a clean checkout or back up existing result files before rerunning them.
@@ -134,3 +148,7 @@ python src/diabetes_benchmark.py --smoke
 Read the [research report](reports/research_report.md) for full tables, numerical diagnostics, configurations, and interpretation. Reproducibility settings are stored with the experiment outputs in `artifacts/experiment_config.json`, `artifacts/phase2/phase2_config.json`, and `artifacts/final_release/release_config.json`.
 
 Background references are listed in the report. This repository is an experimental code and results release, not a published paper; no DOI or paper citation is claimed. The project code is released under the [MIT License](LICENSE). The bundled scikit-learn dataset remains subject to its upstream terms.
+
+## Getting help or contributing
+
+Use the repository's **Issues** tab to report a reproducible bug or suggest a research improvement. Include your Python version, the command you ran, and the complete error output. Before opening a pull request, run `python -m pytest -q`, `python -m pip check`, and the benchmark smoke test above. Keep claims tied to saved results and clearly describe any changes to experiment settings or interpretation.
